@@ -1,0 +1,95 @@
+.home-view {
+  background-color: #F5F6FA;
+  height: 100%;
+}
+header > img {
+  max-width: 100%;
+}
+/* .search-wrp {
+  background: #fff;
+  margin: 15px;
+  border: 1px solid #dedede;
+}
+.search {
+  outline: none;
+  border: none;
+  font-size: 16px;
+  line-height: 35px;
+  color: #ccc;
+  width: 80%;
+}
+.search::-webkit-input-placeholder {
+  color:#ccc;
+}
+.icon-wrp {
+  float: left;
+  color: #ccc;
+  padding: 9px;
+  box-sizing: border-box;
+  border-right: 1px solid #dedede;
+} */
+.major {
+  padding: 10px 10px 0 10px;
+  padding-right: 0;
+  text-align: left;
+  max-width: 100%;
+}
+
+.major-top {
+  line-height: 40px;
+  padding-right: 10px;
+}
+
+.major-top > span {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  color: #fff;
+  background: red;
+  border-radius: 50%;
+}
+.clearMajor {
+  float: right;
+  color: #ddd;
+}
+.clearMajor > span {
+  margin-right: .5em;
+}
+.major-content-wrp {
+  width: 100%;
+  overflow:auto;
+  -webkit-overflow-scrolling : touch;
+  overflow-x: scroll;
+}
+.major-content {
+  padding: 0 10px 25px 5px;
+  margin-top: 10px;
+  width: 300%;
+}
+.major-card {
+  background: #fff;
+  min-width: 130px;
+  margin-right: 15px;
+  font-size: 18px;
+  padding: 10px;
+  float: left;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 3px #E3E5E6;
+}
+.card-photo {
+  width: 50px;
+  border-radius: 50%;
+  float: left;
+}
+.card-name {
+  float: left;
+  line-height: 50px;
+  font-weight: bold;
+  margin-left: .5em;
+}
+.card-text {
+  color: red;
+  margin-top: 5px;
+}
