@@ -4,19 +4,19 @@ const state = {
   patients: [
     {
       id: 0,
-      photo: 'https://www.baidu.com',
+      photo: 'https://dummyimage.com/150x150/ccc/000',
       name: '当当',
       status: '血糖异常'
     },
     {
       id: 1,
-      photo: 'https://www.baidu.com',
+      photo: 'https://dummyimage.com/150x150/ccc/000',
       name: '当当1',
       status: '正常'
     },
     {
       id: 2,
-      photo: 'https://www.baidu.com',
+      photo: 'https://dummyimage.com/150x150/ccc/000',
       name: '当当2',
       status: '血糖异常'
     }

@@ -22,7 +22,7 @@
           <ul class="major-content clearfix">
             <li v-for="patient in patients" :key="patient.id" class="major-card">
               <div class="clearfix">
-                <img src="../../assets/HomeView/photo.png" class="card-photo" alt="">
+                <img :src="patient.photo" class="card-photo" alt="">
                 <p class="card-name">{{patient.name}}</p>
               </div>
               <p class="card-text">
