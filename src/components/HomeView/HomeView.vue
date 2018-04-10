@@ -32,6 +32,37 @@
           </ul>
         </div>
       </div>
+      <div class="filter-wrp">
+        <ul>
+          <li class="filter filter-active">全部</li>
+          <li class="filter">星标</li>
+          <li class="filter">高频低血糖</li>
+          <li class="filter">低频测量</li>
+        </ul>
+        <p class="filter-icon">
+          <icon name="search"></icon>
+        </p>
+      </div>
+      <div class="patients-wrp">
+        <ul class="patients">
+          <li class="patient">
+            <div class="clearfix">
+              <img src="../../assets/HomeView/photo.png" class="card-photo" alt="">
+              <div class="paient-text">
+                <p class="patient-name">当当</p>
+                <p class="patient-time">16/3/18  入组</p>
+              </div>
+            </div>
+            <div class="clearfix patient-test">
+              <p class="test-count"> 28/<span>42次</span></p>
+              <p class="test-result"><span>低2</span><span>高7</span></p>
+            </div>
+            <p class="patient-bar">
+
+            </p>
+          </li>
+        </ul>
+      </div>
     </section>
   </div>
 </template>

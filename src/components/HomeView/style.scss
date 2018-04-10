@@ -1,5 +1,5 @@
 .home-view {
-  background-color: #F5F6FA;
+  background-color: #FAFAFA;
   height: 100%;
 }
 header > img {
@@ -28,6 +28,10 @@ header > img {
   box-sizing: border-box;
   border-right: 1px solid #dedede;
 } */
+
+/*
+  重点关注
+*/
 .major {
   padding: 10px 10px 0 10px;
   padding-right: 0;
@@ -92,4 +96,88 @@ header > img {
 .card-text {
   color: red;
   margin-top: 5px;
+}
+
+/*
+  筛选
+*/
+.filter-wrp {
+  background-color: #F3F3F3;
+  padding: 0 10px;
+  height: 3em;
+  color: #9EA3AE;
+
+  ul > li {
+    float: left;
+    padding: 0 10px;
+    // margin-left: 1em;
+    margin-top: 0.5em;
+    line-height: 2em;
+  }
+}
+
+.filter-active {
+  color: #fff;
+  background-color: #2096F3;
+  border-radius: 15px;
+}
+
+.filter-icon {
+  float: right;
+  margin-top: 1em;
+}
+
+/*patients*/
+.patients-wrp {
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+.patient {
+  width: 50%;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+
+  .paient-text {
+    float: left;
+    padding-top: 5px;
+    padding-left: .5em;
+    text-align: left;
+
+    .patient-name {
+      font-weight: bold;
+    }
+    .patient-time {
+      color: #9EA3AE;
+    }
+  }
+
+  .patient-test {
+    margin: 10px 0;
+    font-size: 18px;
+     .test-count {
+       float: left;
+       margin-left: 5px;
+       line-height: 1.5em;
+
+       span {
+        font-size: 0.8em;
+        color: #9EA3AE;
+       }
+     }
+     .test-result {
+       float: right;
+
+       span {
+         margin-left: 1em;
+       }
+     }
+  }
+
+  .patient-bar {
+    background-color: #D8D8D8;
+    height: 5px;
+    border-radius: 3px;
+  }
 }
