@@ -53,23 +53,27 @@
                 <p class="patient-time">16/3/18  入组</p>
               </div>
             </div>
-            <div class="clearfix patient-test">
+            <div class="patient-test clearfix">
               <p class="test-count"> 28/<span>42次</span></p>
               <p class="test-result"><span>低2</span><span>高7</span></p>
             </div>
-            <p class="patient-bar">
-
+            <p class="patient-bar clearfix">
             </p>
           </li>
         </ul>
       </div>
     </section>
+    <Footer></Footer>
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import Footer from '../Footer/Footer'
 export default {
   name: 'patientManage',
+  components: {
+    Footer
+  },
   data () {
     return {
 

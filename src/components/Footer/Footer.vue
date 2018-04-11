@@ -1,16 +1,15 @@
 <template>
   <div>
     <ul class="footer">
-      <li class="footer-item" v-for="(link,index) in links" :key="index">
-        <a :href="link.url">{{ link.text }}</a>
-      </li>
+      <router-link tag="li" :to="link.url" class="footer-item" v-for="(link,index) in links" :key="index">
+        <icon class="link-icon" name="hospital-o"></icon>
+        <a>{{link.text}}</a>
+      </router-link>
     </ul>
   </div>
 </template>
 <script>
 export default {
-  name: 'FooterElement',
-  props: ['message', 'clearQuestion'],
   data () {
     return {
       links: [
@@ -32,14 +31,10 @@ export default {
         }
       ]
     }
-  },
+  }
 }
 </script>
-<style scoped>
-ul {
-  background-color: aqua;
-}
-li {
-  list-style: none;
-}
+<style lang="scss" scoped>
+  @import "./style.scss";
+
 </style>

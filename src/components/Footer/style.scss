@@ -1,0 +1,32 @@
+.footer {
+  position: fixed;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px 2px #E3E5E6;
+  width: 100%;
+  padding: 10px 0;
+  bottom: 0;
+  left: 0;
+
+  .footer-item {
+    list-style: none;
+    float: left;
+    width: 25%;
+    text-align: center;
+
+    .link-icon {
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000;
+      font-size: .8em;
+    }
+  }
+}
+
+.router-link-active {
+  svg,a {
+    color: #2097F4!important;
+  }
+}
