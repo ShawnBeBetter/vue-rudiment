@@ -58,6 +58,7 @@
               <p class="test-result"><span>低2</span><span>高7</span></p>
             </div>
             <p class="patient-bar clearfix">
+              <icon class="bar-item" name="minus"></icon>
             </p>
           </li>
         </ul>

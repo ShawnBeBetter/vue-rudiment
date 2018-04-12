@@ -179,5 +179,11 @@ header > img {
     background-color: #D8D8D8;
     height: 5px;
     border-radius: 3px;
+
+    .bar-item {
+      float: left;
+      margin-top: -5px;
+      color: #2096F3;
+    }
   }
 }
