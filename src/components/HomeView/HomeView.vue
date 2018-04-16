@@ -69,7 +69,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Footer from '../Footer/Footer'
+import Footer from '../Common/Footer/Footer'
 export default {
   name: 'patientManage',
   components: {
