@@ -1,0 +1,22 @@
+$bg-color: #fafafa;
+
+.page-invite {
+  background-color: $bg-color;
+  height: 100%;
+  padding-top: 20px;
+}
+.card-top {
+  margin: 0 5%;
+  font-weight: bold;
+}
+.card-num {
+  float: left;
+}
+.card-link {
+  float: right;
+  color: #66B6F5;
+
+  a {
+    text-decoration: none;
+  }
+}

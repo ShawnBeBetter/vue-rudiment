@@ -1,7 +1,7 @@
 <template>
   <div class="home-view">
     <header>
-      <img src="../../assets/HomeView/header_banner.png" alt="header">
+      <img src="../../../assets/HomeView/header_banner.png" alt="header">
     </header>
     <section class="content">
       <!-- <div class="search-wrp">
@@ -47,7 +47,7 @@
         <ul class="patients">
           <li class="patient">
             <div class="clearfix">
-              <img src="../../assets/HomeView/photo.png" class="card-photo" alt="">
+              <img src="../../../assets/HomeView/photo.png" class="card-photo" alt="">
               <div class="paient-text">
                 <p class="patient-name">当当</p>
                 <p class="patient-time">16/3/18  入组</p>
@@ -64,12 +64,12 @@
         </ul>
       </div>
     </section>
-    <Footer></Footer>
+    <Footer />
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Footer from '../Common/Footer/Footer'
+import Footer from '../../Shared/Footer/Footer'
 export default {
   name: 'patientManage',
   components: {

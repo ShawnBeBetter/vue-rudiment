@@ -5,12 +5,13 @@
   width: 100%;
   padding: 10px 0;
   bottom: 0;
+  display: flex;
   left: 0;
 
   .footer-item {
     list-style: none;
     float: left;
-    width: 25%;
+    flex: 1;
     text-align: center;
 
     .link-icon {
