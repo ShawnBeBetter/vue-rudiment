@@ -1,0 +1,23 @@
+$bg-color: #FAFAFA;
+.page-invite {
+  height: 100%;
+  background-color: $bg-color;
+}
+.nav-tab {
+  background-color: #fff;
+  box-shadow: 0px 0px 5px 2px #E3E5E6;
+}
+
+.tab-wrp {
+  display: flex;
+  margin: 0 5%;
+}
+
+.tab-wrp > li {
+  flex: 1;
+  line-height: 2.5em;
+}
+
+.tab-active {
+  border-bottom: 1px solid #349FF4;
+}

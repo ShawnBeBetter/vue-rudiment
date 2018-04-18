@@ -15,7 +15,7 @@ export default {
     return {
       links: [
         {
-          text: '患者管理',
+          text: '患者',
           url: '/'
         },
         {

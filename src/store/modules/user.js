@@ -5,15 +5,17 @@ import shop from '../../api/shop'
 const state = {
   user: {
     name: 'shawn',
-    role: 'director',
-    entryTime: '2018-4-17'
+    role: 'doctor',
+    entryTime: '2018-4-17',
+    sex: '男',
+    age: '22'
   },
   all: []
 }
 
 // getters
 const getters = {
-  allProducts: state => state.all
+  role: state => state.user.role
 }
 
 // mutations

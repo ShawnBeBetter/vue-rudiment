@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import VCharts from 'v-charts'
 import HelloWorld from '@/components/Test/HelloWorld'
 import HomeView from '@/components/Views/HomeView/HomeView'
+import PatientDetail from '@/components/Views/PatientDetail/PatientDetail'
 import Setting from '@/components/Views/Setting/Setting'
 import Invitation from '@/components/Views/Invitation/Invitation'
 import CardRecord from '@/components/Views/CardRecord/CardRecord'
@@ -16,6 +17,11 @@ export default new Router({
       path: '/',
       name: 'patientManage',
       component: HomeView
+    },
+    {
+      path: '/patient-detail/:id',
+      name: 'PatientDetail',
+      component: PatientDetail
     },
     {
       path: '/HelloWorld',

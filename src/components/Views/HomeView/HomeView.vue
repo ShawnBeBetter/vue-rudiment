@@ -4,40 +4,13 @@
       <img src="../../../assets/HomeView/header_banner.png" alt="header">
     </header>
     <section class="content">
-      <!-- <div class="search-wrp">
-        <div class="icon-wrp">
-          <icon name="search"></icon>
-        </div>
-        <input type="text" class="search" placeholder="输入患者名字搜索">
-      </div> -->
-      <div class="major">
-        <div class="major-top">
-          最近七天重点关注
-          <span>4</span>
-          <div class="clearMajor">
-            <span>清除提醒</span> <icon name="close"></icon>
-          </div>
-        </div>
-        <div class="major-content-wrp">
-          <ul class="major-content clearfix">
-            <li v-for="patient in patients" :key="patient.id" class="major-card">
-              <div class="clearfix">
-                <img :src="patient.photo" class="card-photo" alt="">
-                <p class="card-name">{{patient.name}}</p>
-              </div>
-              <p class="card-text">
-                {{patient.status}}
-              </p>
-            </li>
-          </ul>
-        </div>
-      </div>
       <div class="filter-wrp">
-        <ul>
-          <li class="filter filter-active">全部</li>
-          <li class="filter">星标</li>
-          <li class="filter">高频低血糖</li>
-          <li class="filter">低频测量</li>
+        <ul class="clearfix">
+          <li class="filter" :class="currentFilter === filter.rule?'filter-active':''"
+            v-for="(filter,index) in filters" :key="index"
+            @click="changeFilter(filter.rule)">
+            {{filter.text}}
+          </li>
         </ul>
         <p class="filter-icon">
           <icon name="search"></icon>
@@ -45,21 +18,31 @@
       </div>
       <div class="patients-wrp">
         <ul class="patients">
-          <li class="patient">
-            <div class="clearfix">
-              <img src="../../../assets/HomeView/photo.png" class="card-photo" alt="">
-              <div class="paient-text">
-                <p class="patient-name">当当</p>
-                <p class="patient-time">16/3/18  入组</p>
+          <li class="patient" v-for="patient in sortPatients" :key="patient.id">
+            <router-link :to="'/patient-detail/'+patient.id">
+              <div class="clearfix">
+                <img :src="patient.photo" class="patient-photo" alt="">
+                <div class="patient-top">
+                  <span class="enroll-time">入组{{patient.enrollDays}}天</span>
+                  <icon :class="patient.isLike?'like':'unlike'" :name="patient.isLike?'heart':'heart-o'"></icon>
+                </div>
               </div>
-            </div>
-            <div class="patient-test clearfix">
-              <p class="test-count"> 28/<span>42次</span></p>
-              <p class="test-result"><span>低2</span><span>高7</span></p>
-            </div>
-            <p class="patient-bar clearfix">
-              <icon class="bar-item" name="minus"></icon>
-            </p>
+              <div class="clearfix">
+                <div class="patient-info">
+                  <p>{{patient.name}}</p>
+                  <span>{{patient.sex}}</span>
+                  <span class="patient-age">{{patient.age}}岁</span>
+                </div>
+                <div class="patient-test">
+                  <p>近7天测量{{patient.testCount}}次 低糖{{patient.lowCount}}次</p>
+                  <p class="tags">
+                    <span v-for="(tag,index) in patient.tags" :key="index" class="tag">
+                      {{tag}}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -77,13 +60,44 @@ export default {
   },
   data () {
     return {
-
+      sortPatients: [],
+      currentFilter: 'default',
+      filters: [
+        {
+          rule: 'default',
+          text: '全部'
+        },
+        {
+          rule: 'lowCount',
+          text: '七天低糖次数'
+        },
+        {
+          rule: 'testCount',
+          text: '七天测量次数'
+        },
+        {
+          rule: 'enrollDays',
+          text: '入组时间'
+        }
+      ]
     }
   },
   computed: {
     ...mapGetters({
       patients: 'patients'
     })
+  },
+  methods: {
+    sortList (a, b) {
+      return b[this.currentFilter] - a[this.currentFilter]
+    },
+    changeFilter (rule) {
+      this.currentFilter = rule
+      this.sortPatients = this.patients.sort(this.sortList)
+    }
+  },
+  beforeMount () {
+    this.sortPatients = this.patients.sort(this.sortList)
   }
 }
 </script>

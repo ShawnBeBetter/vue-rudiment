@@ -1,111 +1,32 @@
+$header-height: 40px;
 .home-view {
   background-color: #FAFAFA;
   height: 100%;
+  padding-bottom: 80px;//待修改
+}
+header {
+  height: $header-height;
+  line-height: $header-height;
 }
 header > img {
   max-width: 100%;
-}
-/* .search-wrp {
-  background: #fff;
-  margin: 15px;
-  border: 1px solid #dedede;
-}
-.search {
-  outline: none;
-  border: none;
-  font-size: 16px;
-  line-height: 35px;
-  color: #ccc;
-  width: 80%;
-}
-.search::-webkit-input-placeholder {
-  color:#ccc;
-}
-.icon-wrp {
-  float: left;
-  color: #ccc;
-  padding: 9px;
-  box-sizing: border-box;
-  border-right: 1px solid #dedede;
-} */
-
-/*
-  重点关注
-*/
-.major {
-  padding: 10px 10px 0 10px;
-  padding-right: 0;
-  text-align: left;
-  max-width: 100%;
-}
-
-.major-top {
-  line-height: 40px;
-  padding-right: 10px;
-}
-
-.major-top > span {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  line-height: 25px;
-  text-align: center;
-  color: #fff;
-  background: red;
-  border-radius: 50%;
-}
-.clearMajor {
-  float: right;
-  color: #ddd;
-}
-.clearMajor > span {
-  margin-right: .5em;
-}
-.major-content-wrp {
-  width: 100%;
-  overflow:auto;
-  -webkit-overflow-scrolling : touch;
-  overflow-x: scroll;
-}
-.major-content {
-  padding: 0 10px 25px 5px;
-  margin-top: 10px;
-  width: 300%;
-}
-.major-card {
-  background: #fff;
-  min-width: 130px;
-  margin-right: 15px;
-  font-size: 18px;
-  padding: 10px;
-  float: left;
-  border-radius: 10px;
-  // box-shadow: 0px 0px 5px 3px #E3E5E6;
-}
-.card-photo {
-  width: 50px;
-  border-radius: 50%;
-  float: left;
-}
-.card-name {
-  float: left;
-  line-height: 50px;
-  font-weight: bold;
-  margin-left: .5em;
-}
-.card-text {
-  color: red;
-  margin-top: 5px;
 }
 
 /*
   筛选
 */
 .filter-wrp {
-  background-color: #F3F3F3;
+  background-color: #fff;
   padding: 0 10px;
   height: 3em;
   color: #9EA3AE;
+  // position: relative;
+  overflow-x: scroll;
+  box-shadow: 0px 1px 1px 1.5px #EBEDEE;
+
+  ul {
+    width: 420px;
+  }
 
   ul > li {
     float: left;
@@ -123,8 +44,15 @@ header > img {
 }
 
 .filter-icon {
-  float: right;
-  margin-top: 1em;
+  position: absolute;
+  background-color: #fff;
+  width: 3em;
+  height: 3em;
+  right: 0;
+  top: $header-height;
+  padding-top: 1em;
+  box-sizing: border-box;
+  box-shadow: -1px 2px 1px 0.5px #EBEDEE;
 }
 
 /*patients*/
@@ -134,56 +62,64 @@ header > img {
 }
 
 .patient {
-  width: 50%;
   background-color: #fff;
-  padding: 10px;
+  box-sizing: border-box;
+  padding: 0 20px 15px 30px;
+  margin-bottom: 20px;
   border-radius: 5px;
+  box-shadow: 0px 1px 2px 2px #EBEDEE;
 
-  .paient-text {
+  .patient-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     float: left;
-    padding-top: 5px;
-    padding-left: .5em;
-    text-align: left;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  .patient-top {
+    float: right;
+    margin-top: 20px;
 
-    .patient-name {
-      font-weight: bold;
+    .enroll-time {
+      font-size: 14px;
+      color: #E2E2E2;
+      margin-right: .5em;
     }
-    .patient-time {
-      color: #9EA3AE;
+    .like {
+      color: red;
+    }
+    .unlike {
+      color: #E1E1E1;
     }
   }
+}
 
-  .patient-test {
-    margin: 10px 0;
-    font-size: 18px;
-     .test-count {
-       float: left;
-       margin-left: 5px;
-       line-height: 1.5em;
+.patient-info,.patient-test {
+  float: left;
+  color: #000;
 
-       span {
-        font-size: 0.8em;
-        color: #9EA3AE;
-       }
-     }
-     .test-result {
-       float: right;
-
-       span {
-         margin-left: 1em;
-       }
-     }
+  span {
+    color: #ABB0B9;
+    font-size: .8em;
   }
+  .patient-age {
+    margin-left: 3px;
+  }
+}
+.patient-test {
+  margin-left: 1em;
+  text-align: left;
 
-  .patient-bar {
-    background-color: #D8D8D8;
-    height: 5px;
-    border-radius: 3px;
+  .tags {
+    margin-top: 10px;
 
-    .bar-item {
-      float: left;
-      margin-top: -5px;
-      color: #2096F3;
+    .tag {
+      color: #F66156;
+      border: 1px solid #F66156;
+      border-radius: 5px;
+      padding: 2px 5px;
+      margin-right: 5px;
     }
   }
 }
