@@ -1,4 +1,4 @@
-
+import request from '../common/request'
 // initial state
 const state = {
   patients: [
@@ -65,12 +65,21 @@ const getters = {
 
 // actions
 const actions = {
-
+  handleLike ({ commit }, id) {
+    request.post('123', 123)
+    commit('changeLike', id)
+  }
 }
 
 // mutations
 const mutations = {
-
+  changeLike (state, id) {
+    state.patients.forEach((item) => {
+      if (item.id === id) {
+        item.isLike = !item.isLike
+      }
+    })
+  }
 }
 
 export default {

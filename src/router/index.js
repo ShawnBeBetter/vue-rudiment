@@ -11,7 +11,7 @@ import Summary from '@/components/Views/Summary/Summary'
 
 Vue.use(Router, VCharts)
 
-export default new Router({
+const vueRouter = new Router({
   routes: [
     {
       path: '/',
@@ -50,3 +50,10 @@ export default new Router({
     }
   ]
 })
+
+vueRouter.beforeEach((to, from, next) => {
+  console.log('页面即将跳转')
+  next()
+})
+
+export default vueRouter

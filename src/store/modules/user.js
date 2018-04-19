@@ -5,7 +5,7 @@ import shop from '../../api/shop'
 const state = {
   user: {
     name: 'shawn',
-    role: 'doctor',
+    role: 'director',
     entryTime: '2018-4-17',
     sex: '男',
     age: '22'
