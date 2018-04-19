@@ -1,4 +1,4 @@
-import request from '../common/request'
+import httpClient from '../common/httpClient'
 // initial state
 const state = {
   patients: [
@@ -66,7 +66,7 @@ const getters = {
 // actions
 const actions = {
   handleLike ({ commit }, id) {
-    request.post('123', 123)
+    httpClient.get('/api')
     commit('changeLike', id)
   }
 }
