@@ -1,9 +1,10 @@
 import axios from 'axios'
 
 const httpClient = axios.create({
-  baseURL: 'http://localhost:29832/lccp/',
+  // baseURL: 'http://localhost:29832/lccp/',
+  baseURL: '/lccp/',
   timeout: 0
-  // headers: { 'Cache-Control': 'no-cache, must-revalidate' },
+  // headers: { 'Cache-Control': 'no-cache, must-revalidate' }
   // withCredentials: true
 })
 

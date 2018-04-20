@@ -55,18 +55,23 @@ const state = {
       tags: ['低血糖', '高血糖', '连续低糖']
     }
   ],
-  sortPatients: []
+  news: [
+    '礼来快报: XXX在XXX获得XXX',
+    '礼来快报: YYY在YYY获得YYY',
+    '礼来快报: ZZZ在ZZZ获得ZZZ'
+  ]
 }
 
 // getters
 const getters = {
-  patients: state => state.patients
+  patients: state => state.patients,
+  news: state => state.news
 }
 
 // actions
 const actions = {
   handleLike ({ commit }, id) {
-    httpClient.get('cross/get').then((response) => {
+    httpClient.get('cross/GetUserInfo').then((response) => {
       console.log(response.data)
       commit('changeLike', id)
     })

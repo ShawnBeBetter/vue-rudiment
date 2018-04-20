@@ -1,7 +1,12 @@
 <template>
   <div class="home-view">
     <header>
-      <img src="../../../assets/HomeView/header_banner.png" alt="header">
+      <transition-group tag="ul" class="news" name="fade">
+        <li v-for="(newItem,index) in news" :key="index"
+          v-show="index===currentIndex">
+          {{newItem}}
+        </li>
+      </transition-group>
     </header>
     <section class="content">
       <div class="filter-wrp">
@@ -10,11 +15,32 @@
             v-for="(filter,index) in filters" :key="index"
             @click="changeFilter(filter.rule)">
             {{filter.text}}
+            <span class="sort-icon-asc" :class="currentSort==='asc'?'active-icon':''">
+              <icon name="sort-asc"></icon>
+            </span>
+            <span class="sort-icon-desc" :class="currentSort==='desc'?'active-icon':''">
+              <icon name="sort-desc"></icon>
+            </span>
           </li>
         </ul>
-        <p class="filter-icon">
+        <p class="filter-icon" v-show="!searchPatient" @click="showtags">
           <icon name="search"></icon>
         </p>
+        <p class="filter-text" v-show="searchPatient">
+          <span class="search-icon"><icon name="search" scale="1.1"></icon></span>
+          <input type="text" placeholder="搜索患者" v-model="searchValue">
+          <span class="search-close" @click="showtags">
+            {{!searchValue ? '关闭' : '搜索'}}
+          </span>
+        </p>
+      </div>
+      <div class="filter-tags" v-show="searchPatient">
+        <span class="filter-tag filter-tag-active">10多岁</span>
+        <span class="filter-tag">20多岁</span>
+        <span class="filter-tag">30多岁</span>
+        <span class="filter-tag">40多岁</span>
+        <span class="filter-tag">50多岁</span>
+        <span class="filter-tag">60多岁</span>
       </div>
       <div class="patients-wrp">
         <ul class="patients">
@@ -64,7 +90,12 @@ export default {
   data () {
     return {
       sortPatients: [],
+      timer: null,
       currentFilter: 'default',
+      currentIndex: 0,
+      searchPatient: false,
+      searchValue: '',
+      currentSort: 'desc',
       filters: [
         {
           rule: 'default',
@@ -87,12 +118,13 @@ export default {
   },
   computed: {
     ...mapGetters({
-      patients: 'patients'
+      patients: 'patients',
+      news: 'news'
     })
   },
   methods: {
     sortList (a, b) {
-      let result = b[this.currentFilter] - a[this.currentFilter]
+      let result = this.currentSort === 'desc' ? b[this.currentFilter] - a[this.currentFilter] : a[this.currentFilter] - b[this.currentFilter]
       if (result !== 0) {
         return result
       } else {
@@ -102,7 +134,32 @@ export default {
     goToDetail (patientId) {
       this.$router.push('/patient-detail/' + patientId)
     },
+    autoPlay () {
+      this.currentIndex++
+      if (this.currentIndex >= this.news.length) {
+        this.currentIndex = 0
+      }
+    },
+    showtags () {
+      if (!this.searchValue) {
+        this.searchPatient = !this.searchPatient
+      } else {
+        this.search()
+        this.searchValue = ''
+      }
+    },
+    search () {
+      let reg = new RegExp(this.searchValue.trim())
+      this.sortPatients = this.patients.filter((patient) => {
+        return reg.test(patient.name)
+      })
+    },
     changeFilter (rule) {
+      if (rule === this.currentFilter) {
+        this.currentSort = this.currentSort === 'asc' ? 'desc' : 'asc'
+      } else {
+        this.currentSort = 'desc'
+      }
       this.currentFilter = rule
       this.sortPatients = this.patients.sort(this.sortList)
     },
@@ -112,6 +169,11 @@ export default {
   },
   beforeMount () {
     this.sortPatients = this.patients.sort(this.sortList)
+  },
+  mounted () {
+    this.timer = setInterval(() => {
+      this.autoPlay()
+    }, 3000)
   }
 }
 </script>

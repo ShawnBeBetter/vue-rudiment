@@ -1,15 +1,27 @@
 $header-height: 40px;
+$filter-height: 3em;
+$header-bgColor: #2096F3;
 .home-view {
   background-color: #FAFAFA;
-  height: 100%;
+  min-height: 100%;
   padding-bottom: 80px;//待修改
 }
 header {
   height: $header-height;
+  color: #fff;
   line-height: $header-height;
+  background: $header-bgColor;
+  overflow: hidden;
 }
 header > img {
   max-width: 100%;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 
 /*
@@ -18,41 +30,104 @@ header > img {
 .filter-wrp {
   background-color: #fff;
   padding: 0 10px;
-  height: 3em;
+  height: $filter-height;
   color: #9EA3AE;
   // position: relative;
   overflow-x: scroll;
   box-shadow: 0px 1px 1px 1.5px #EBEDEE;
+  z-index: 9;
 
   ul {
-    width: 420px;
+    width: 450px;
   }
 
-  ul > li {
+  ul > li.filter {
     float: left;
-    padding: 0 10px;
-    // margin-left: 1em;
+    padding: 0 15px 0 10px;
     margin-top: 0.5em;
     line-height: 2em;
+    position: relative;
   }
 }
 
+.sort-icon-asc,.sort-icon-desc {
+  position: absolute;
+  right: 0;
+  top: 2px;
+}
+
 .filter-active {
-  color: #fff;
-  background-color: #2096F3;
-  border-radius: 15px;
+
+  .active-icon {
+    color: #36A0F4;
+  }
 }
 
 .filter-icon {
   position: absolute;
   background-color: #fff;
-  width: 3em;
-  height: 3em;
+  width: $filter-height;
+  height: $filter-height;
   right: 0;
   top: $header-height;
   padding-top: 1em;
   box-sizing: border-box;
   box-shadow: -1px 2px 1px 0.5px #EBEDEE;
+}
+
+.filter-text {
+  position: absolute;
+  width: 100%;
+  height: $filter-height;
+  line-height: $filter-height;
+  font-size: 16px;
+  top: $header-height;
+  left: 0;
+  background-color: #fff;
+  z-index: 10;
+
+  .search-icon {
+    float: left;
+    font-size: 1.1em;
+    width: $filter-height;
+    height: $filter-height;
+    color: #D5D5D5;
+  }
+
+  input {
+    min-width: 70%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #D5D5D5;
+  }
+  input::-webkit-input-placeholder{
+    color: #D5D5D5;
+  }
+  .search-close {
+    float: right;
+    width: $filter-height;
+    height: $filter-height;
+    color: #A3A8B2;
+  }
+}
+
+/*tags*/
+.filter-tags {
+  padding: 20px 10px 0;
+  text-align: left;
+
+  .filter-tag {
+    display: inline-block;
+    padding: .2em .5em;
+    margin-bottom: .5em;
+  }
+
+  .filter-tag-active {
+    background: #36A0F4;
+    border-radius: 10px;
+    color: #fff;
+  }
 }
 
 /*patients*/
