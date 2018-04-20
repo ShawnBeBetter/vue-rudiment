@@ -66,8 +66,10 @@ const getters = {
 // actions
 const actions = {
   handleLike ({ commit }, id) {
-    httpClient.get('/api')
-    commit('changeLike', id)
+    httpClient.get('cross/get').then((response) => {
+      console.log(response.data)
+      commit('changeLike', id)
+    })
   }
 }
 
