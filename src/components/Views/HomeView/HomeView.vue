@@ -23,10 +23,10 @@
             </span>
           </li>
         </ul>
-        <p class="filter-icon" v-show="!searchPatient" @click="showtags">
+        <p class="filter-icon" v-show="!showSearch" @click="showtags">
           <icon name="search"></icon>
         </p>
-        <p class="filter-text" v-show="searchPatient">
+        <p class="filter-text" v-show="showSearch">
           <span class="search-icon"><icon name="search" scale="1.1"></icon></span>
           <input type="text" placeholder="搜索患者" v-model="searchValue">
           <span class="search-close" @click="showtags">
@@ -34,7 +34,7 @@
           </span>
         </p>
       </div>
-      <div class="filter-tags" v-show="searchPatient">
+      <div class="filter-tags" v-show="showSearch">
         <span class="filter-tag filter-tag-active">10多岁</span>
         <span class="filter-tag">20多岁</span>
         <span class="filter-tag">30多岁</span>
@@ -93,7 +93,7 @@ export default {
       timer: null,
       currentFilter: 'default',
       currentIndex: 0,
-      searchPatient: false,
+      showSearch: false,
       searchValue: '',
       currentSort: 'desc',
       filters: [
@@ -142,7 +142,11 @@ export default {
     },
     showtags () {
       if (!this.searchValue) {
-        this.searchPatient = !this.searchPatient
+        this.showSearch = !this.showSearch
+        this.sortPatients = []
+        if (!this.showSearch) {
+          this.sortPatients = this.patients.sort(this.sortList)
+        }
       } else {
         this.search()
         this.searchValue = ''

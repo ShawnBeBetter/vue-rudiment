@@ -4,7 +4,7 @@ $header-bgColor: #2096F3;
 .home-view {
   background-color: #FAFAFA;
   min-height: 100%;
-  padding-bottom: 80px;//待修改
+  padding-bottom: 60px;//待修改
 }
 header {
   height: $header-height;
@@ -119,6 +119,7 @@ header > img {
 
   .filter-tag {
     display: inline-block;
+    color: #B6BAC3;
     padding: .2em .5em;
     margin-bottom: .5em;
   }
@@ -139,7 +140,7 @@ header > img {
 .patient {
   background-color: #fff;
   box-sizing: border-box;
-  padding: 0 20px 15px 30px;
+  padding: 0 0px 15px 30px;
   margin-bottom: 20px;
   border-radius: 5px;
   box-shadow: 0px 1px 2px 2px #EBEDEE;
@@ -155,6 +156,7 @@ header > img {
   .patient-top {
     float: right;
     margin-top: 20px;
+    margin-right: 20px;
 
     .enroll-time {
       font-size: 14px;

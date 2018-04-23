@@ -1,0 +1,148 @@
+$photo-size: 50px;
+$bg-color: #FAFAFA;
+$sheet-border-color :#E8E8E8;
+.page-invite {
+  min-height: 100%;
+  background: $bg-color;
+  padding: 20px 10px 0 10px;
+}
+
+.patient-info {
+  margin: 0 10px;
+
+  .patient-photo {
+    width: $photo-size;
+    height: $photo-size;
+    float: left;
+
+    img {
+      max-width: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  .patient-text {
+    float: left;
+    line-height: $photo-size/2;
+    text-align: left;
+    margin-left: 1em;
+  }
+
+  .like-icon {
+    float: right;
+    margin-top: .5em;
+  }
+
+}
+
+.like {
+  color: red;
+}
+.unlike {
+  color: #E1E1E1;
+}
+
+.patient-text > p > span {
+  margin-right: 1em;
+  color: #7E8694;
+}
+
+.patient-name {
+  font-weight: bold;
+}
+
+.medicine-intro {
+  background: #fff;
+  border-radius: 10px;
+  margin: 20px 0;
+  padding: 10px 10px;
+  box-shadow: 0px 1px 2px 2px #EBEDEE;
+
+  .intro-text {
+    float: left;
+    text-align: left;
+  }
+
+  .intro-link {
+    float: right;
+    color: #47A8F5;
+    font-size: 12px;
+  }
+}
+
+.test-detail {
+  background: #fff;
+  padding: 1em 0px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 2px 2px #EBEDEE;
+
+  .detail-text {
+    text-align: left;
+    border-bottom: 1px dotted #E9EAEC;
+    padding: 0 10px;
+
+    .tag-wrp {
+      margin: 10px 0;
+
+      .tag {
+        color: #FCCDCA;
+        border: 1px solid #FBBFBC;
+        border-radius: 5px;
+        padding: 2px 5px;
+        margin-right: 5px;
+      }
+
+      .tag-active {
+        background: #F43F32;
+        border-color: #F43F32;
+        color: #fff;
+      }
+    }
+  }
+
+  .detail-chart {
+    margin-top: 10px;
+
+    .tab-buttons {
+      display: flex;
+      color: #7D8593;
+
+      .tab-button {
+        flex: 1;
+        line-height: 2em;
+        border-bottom: 2px solid #7D8593;
+      }
+      .tab-active {
+        color: #000;
+        border-color: #000;
+      }
+    }
+  }
+}
+
+.calendar-sheet {
+  margin-top: 10px;
+
+  .sheet-row > ul {
+    display: flex;
+    border-bottom: 1px solid $sheet-border-color;
+
+    li {
+      flex: 1;
+      font-size: 3vmin;
+      padding: 5px 0;
+      border-left: 1px solid $sheet-border-color;
+    }
+  }
+
+  .sheet-header {
+    color: #999FAB;
+    background-color: #FAFAFA;
+    border-top: 1px solid $sheet-border-color;
+    border-bottom: 2px solid $sheet-border-color!important;
+  }
+
+  .sheet-row:nth-child(-n+6) > ul {
+    border-bottom: 1px dotted $sheet-border-color;
+  }
+}
